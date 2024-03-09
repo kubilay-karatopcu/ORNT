@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Check if the div exists before attempting to render the plot
                 if (plotDiv) {
-                    Plotly.newPlot(plotDiv, plotConfig);
+                    Plotly.newPlot(plotDiv, plotConfig, {responsive: true});
                 }
 
                 const explanationDiv = document.getElementById(explanationId);

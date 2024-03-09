@@ -1350,5 +1350,4 @@ def get_plots():
     return jsonify(plots_and_explanations)
 
 
-if __name__ == '__main__':
-    app.run(debug=False)
+

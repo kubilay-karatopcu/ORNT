@@ -12,7 +12,7 @@ app = Flask(__name__)
 import pandas as pd
 import numpy as np
 
-rawData = pd.read_excel("./rawData.xlsx")
+rawData = pd.read_csv("./rawData.csv")
 print(rawData.columns)
 
 
@@ -1348,6 +1348,4 @@ def get_plots():
                             ]
 
     return jsonify(plots_and_explanations)
-
-
 

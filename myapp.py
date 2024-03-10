@@ -12,7 +12,7 @@ app = Flask(__name__)
 import pandas as pd
 import numpy as np
 
-rawData = pd.read_csv("/home/kubilaykaratopcu/ORNT/rawData.csv")
+rawData = pd.read_csv("../rawData.csv")
 print(rawData.columns)
 
 
@@ -196,7 +196,7 @@ top_5_rows_per_type = sorted_counts.groupby("Disaster_Type").head(5)
 subFilteredData = filteredData.loc[filteredData.Disaster_Type.isin(["Earthquake","Flood","Storm"])]
 
 #################################### DEVELOPMENT PART ####################################
-hdi = pd.read_csv("/home/kubilaykaratopcu/ORNT/hdr.csv")
+hdi = pd.read_csv("../hdr.csv")
 melted_df = pd.melt(hdi, id_vars=['iso3', 'country', 'hdicode', 'region'], 
                     var_name='indicator', value_name='value')
 melted_df["indicator"],melted_df["year"] = zip(*melted_df["indicator"].apply(lambda x: ("_".join(x.split("_")[:-1]), x.split("_")[-1])))
@@ -363,7 +363,7 @@ def get_plots():
 
     data_slider = []
     for idx, year in enumerate(decadelRegionalDeaths_ByDisasterGroup['Decade'].unique()):
-        df_segmented =  decadelRegionalDeaths_ByDisasterGroup[(decadelRegionalDeaths_ByDisasterGroup['Decade']== year)]
+        df_segmented =  decadelRegionalDeaths_ByDisasterGroup[(decadelRegionalDeaths_ByDisasterGroup['Decade']== year)].copy()
 
         for col in df_segmented.columns:
             df_segmented[col] = df_segmented[col].astype(str)
@@ -1348,4 +1348,6 @@ def get_plots():
                             ]
 
     return jsonify(plots_and_explanations)
+
+
 

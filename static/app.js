@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Check if the div exists before attempting to render the plot
                 if (plotDiv) {
                     Plotly.newPlot(plotDiv, plotConfig, {responsive: true});
+                    if (index === plots.length - 1) {
+                        document.getElementById('loading').style.display = 'none';
+                    }
                 }
 
-                const explanationDiv = document.getElementById(explanationId);
-                if (explanationDiv) {
-                    explanationDiv.textContent = plotData.explanation;
-                }
+
             });
         });
 });

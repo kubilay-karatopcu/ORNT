@@ -6,11 +6,24 @@
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
+    <div id="loading" style="position: fixed; left: 0; top: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: white; z-index: 1000;">
+        <img src="static/loading.gif" alt="Loading..." style="width: auto; height: auto;"/>
+      </div>
     <div class="container-fluid mt-5">
         <div id="introduction" class="text-center mb-5">
             <h1>Natural Disaster Report Dashboard</h1>
-            <p>This dashboard provides an interactive comparison of natural disaster damages and development.</p>
+            <h3>Mehmet Kubilay Karatopçu / 85829</h3>
+            <h3>Elif Yıldırım Oktar / 28159</h3>
+            <p style="margin-top: 24px; margin-bottom: 8px;"> Our aim is to explain relations between several development indicators and natural disaster damages for countries by using visualization techniques based on EM-DAT Project dataset.</p>
+            <p>
+                Our motivation is that uncovering this relationship might lead under-developed countries to understand what precautions should be taken in order to prevent damages,
+                especially if we can empirically show that these damages were prevented by the developed countries.
+            </p>
+            </b>
+            </b>
         </div>
+
+        <h1 style="margin-left: 5%;" >Part I: Natural Disasters</h1>
         <!-- Plots will be dynamically inserted here -->
         <div class="container-fluid" id="plots-container"></div>
             <!-- Couplets: Two plots side by side -->
@@ -28,17 +41,17 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    This is a shared explanation for both plots.
+                    There appears to be a general trend of decreasing deaths over time, with some fluctuations. Notably, the decades of 1920, 1930 show higher numbers of deaths.
                 </div>
             </div>
 
             <!-- Plot 3 -->
-            <div class="card mb-4 custom-card ">
+            <div class="card mb-4  text-center custom-card ">
                 <div class="card-body">
                     <div id="plot-3" class="plot"></div>
                 </div>
-                <div class="card-footer text-muted" id="explanation3">
-                    <!-- Explanation for Plot 3 will go here -->
+                <div class="card-footer text-muted">
+                    A key issue of data quality is the consistency of even reporting over time. For long-term trends in natural disaster events, we know that reporting and recording of events today is much more advanced and complete than in the past. This can lead to significant underreporting or uncertainty of events in the distant past. In the chart here we show data on the number of reported natural disasters over time by disaster type.
                 </div>
             </div>
 
@@ -55,67 +68,73 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    This is a shared explanation for both plots.
+                    Almost 50 percent of disasters are occured in Asia and they are mostlt Floods or Storms.
                 </div>
             </div>
 
             <!-- Plot 6 -->
-            <div class="card mb-4 custom-card ">
+            <div class="card mb-4  text-center custom-card ">
                 <div class="card-body">
                     <div id="plot-6" class="plot"></div>
                 </div>
-                <div class="card-footer text-muted" id="explanation6">
-                    <!-- Explanation for Plot 6 will go here -->
+                <div class="card-footer text-muted">
+                    This plot shows the number of natural disasters that occurred on a country basis. We can see that USA, India, China and Indonesia have signifacantly more disasters than other countries.
                 </div>
             </div>
 
             <!-- Plot 7 -->
-            <div class="card mb-4 custom-card ">
+            <div class="card mb-4  text-center custom-card ">
                 <div class="card-body">
                     <div id="plot-7" class="plot"></div>
                 </div>
                 <div class="card-footer text-muted" id="explanation7">
-                    <!-- Explanation for Plot 7 will go here -->
-                </div>
-            </div>
-
-            <!-- Plot 8 -->
-            <div class="card mb-4 custom-card ">
-                <div class="card-body">
-                    <div id="plot-8" class="plot"></div>
-                </div>
-                <div class="card-footer text-muted" id="explanation8">
-                    <!-- Explanation for Plot 8 will go here -->
+                    This plot shows the total number of losses on a country basis. As expected high population countries have greater losses.
                 </div>
             </div>
 
             <!-- Plot 9 -->
-            <div class="card mb-4 custom-card ">
+            <div class="card mb-4  text-center custom-card ">
                 <div class="card-body">
                     <div id="plot-9" class="plot"></div>
                 </div>
                 <div class="card-footer text-muted" id="explanation9">
-                    <!-- Explanation for Plot 9 will go here -->
+                    In this plot we can see the total losses in a decadel basis.
                 </div>
             </div>
 
+            <div style="margin-left: 5%; margin-right: 5%;" id="part-2" class="mb-5">
+                <h1>Part II: Development vs Natural Disasters</h1>
+                <p>
+                    In this part we are going to explain the relationship. For the development part we are going to use Human Development Report data from United Nations Development Programme.
+                    For our analysis we use three main features from the data: </b>
+                    <ol>
+                        <li>Human Development Index (HDI): The Human Development Index (HDI) is a statistical composite index of life expectancy, education (mean years of schooling completed and expected years of schooling upon entering the education system),
+                            and per capita income indicators, which is used to rank countries into four tiers of human development. </li>
+                        <li>Gender Inequality Index (GII): It uses three dimensions to measure opportunity cost: reproductive health, empowerment, and labor market participation.</li>
+                        <li>Gross National Income Per Capita (GNIPC)</li>
+                      </ol>
+                    And for the natural disaster damage part we are going to use Death Per Event feature which is Total Deaths from a disaster type divided by the number of events.
+                </p>
+            </div>
+            <h2 style="margin-left: 5%;">Flood</h3>
             <!-- Plot 11 -->
-            <div class="card mb-4 custom-card ">
+            <div class="card mb-4  text-center custom-card ">
                 <div class="card-body">
                     <div id="plot-11" class="plot"></div>
                 </div>
                 <div class="card-footer text-muted" id="explanation11">
-                    <!-- Explanation for Plot 11 will go here -->
+                    This histograms show the total number of Flood event distribution by Country. So most of the countries experienced Flood between 0-9 times.
                 </div>
             </div>
 
             <!-- Plot 12 -->
-            <div class="card mb-4 custom-card ">
+            <div class="card mb-4  text-center custom-card ">
                 <div class="card-body">
                     <div id="plot-12" class="plot"></div>
                 </div>
                 <div class="card-footer text-muted" id="explanation12">
-                    <!-- Explanation for Plot 12 will go here -->
+                    Here we can see the relationship between GII and the Death Per Event including all countries. It can be said that there is a positive correlation between GII and DeathPerEvent. In other words, if gender 
+                    inequality increases the average loss by event increases.
                 </div>
             </div>
 
@@ -135,27 +154,32 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    This is a shared explanation for both plots.
+                    In this plot it can be seen than all three relationships for the countries that have suffient number of Flood events. We can strongly argue that all three parameters are correlated in a way that development 
+                    is preventive for Flood Disasters.
                 </div>
             </div>
 
+            <h2 style="margin-left: 5%;">Earthquake</h3>
             <!-- Plot 18 -->
-            <div class="card mb-4 custom-card ">
+            <div class="card mb-4  text-center custom-card ">
                 <div class="card-body">
                     <div id="plot-18" class="plot"></div>
                 </div>
                 <div class="card-footer text-muted" id="explanation18">
-                    <!-- Explanation for Plot 18 will go here -->
+                    This histograms show the total number of Earthquake event distribution by Country. So most of the countries experienced Flood between 0-5 times.
                 </div>
             </div>
 
             <!-- Plot 19 -->
-            <div class="card mb-4 custom-card ">
+            <div class="card mb-4  text-center custom-card ">
                 <div class="card-body">
                     <div id="plot-19" class="plot"></div>
                 </div>
                 <div class="card-footer text-muted" id="explanation19">
-                    <!-- Explanation for Plot 19 will go here -->
+                    In this plot it can be seen that the relationship between HDI and DeathPerEvent for Earthquake for the countries having suffient number of Earthquake events. However, although the correlation line shows a negative correlation
+                    Japan, Türkiye, and Indonesia are seem to be the same level of losses. And as from our knowledge the losses in Japan should significantly be lower than Türkiye. When we delve into details of the data wee see that
+                    the losses are not due to Ground Movements but Tsunami. Therefore, in our analysis below we only used the Ground Movement deaths since it is the part that we can prevent with the technology and education we have, 
+                    not Tsunami. 
                 </div>
             </div>
             
@@ -175,17 +199,18 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    This is a shared explanation for both plots.
+                    In this plot it can be seen than all three relationships for the countries that have suffient number of Earthquake events. We can strongly argue that all three parameters are correlated in a way that development 
+                    is preventive for Earthquake Disasters.
                 </div>
             </div>
-
+            <h2 style="margin-left: 5%;">Storm</h3>
             <!-- Plot 23 -->
-            <div class="card mb-4 custom-card ">
+            <div class="card mb-4  text-center custom-card ">
                 <div class="card-body">
                     <div id="plot-23" class="plot"></div>
                 </div>
                 <div class="card-footer text-muted" id="explanation23">
-                    <!-- Explanation for Plot 23 will go here -->
+                    This histograms show the total number of Storm event distribution by Country. So most of the countries experienced Storm between 0-20 times.
                 </div>
             </div>
 
@@ -205,7 +230,8 @@
                     </div>
                 </div>
                 <div class="card-footer text-muted">
-                    This is a shared explanation for both plots.
+                    In this plot it can be seen than all three relationships for the countries that have suffient number of Storm events. We can strongly argue that all three parameters are correlated in a way that development 
+                    is preventive for Storm Disasters.
                 </div>
             </div>            
 
@@ -217,7 +243,7 @@
           margin: 0 auto; /* Center the card horizontally */
           float: none; /* Additional property to ensure it doesn't float */
         }
-      
+        
         .custom-card .card-body .plot {
           display: flex;
           justify-content: center;
@@ -231,6 +257,23 @@
         .plotly-graph-div {
           margin: auto !important;
         }
+
+        #loading {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensure it's above other content */
+        }
+
+        #loading img {
+            width: auto; /* or specify a size */
+            height: auto; /* maintain aspect ratio */
+        }
+
       </style>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
